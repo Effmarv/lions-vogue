@@ -1,0 +1,1 @@
+ALTER TABLE `settings` MODIFY COLUMN `key` varchar(255) NOT NULL;

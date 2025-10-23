@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1761165079283,
+      "tag": "0000_tiny_morgan_stark",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1761165147845,
+      "tag": "0001_parallel_bushwacker",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1761167007767,
+      "tag": "0002_mixed_dreadnoughts",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1761168043824,
+      "tag": "0003_numerous_leo",
+      "breakpoints": true
+    }
+  ]
+}
