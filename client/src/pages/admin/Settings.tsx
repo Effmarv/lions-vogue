@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { trpc } from "@/lib/trpc";
 import { Save, Mail, Phone, MessageCircle, Facebook, Instagram, Twitter } from "lucide-react";
+import { ADMIN_EMAIL, WHATSAPP_NUMBER, SOCIAL_LINKS } from "@/const";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
@@ -18,6 +19,7 @@ export default function AdminSettings() {
   const [supportFacebook, setSupportFacebook] = useState("");
   const [supportInstagram, setSupportInstagram] = useState("");
   const [supportTwitter, setSupportTwitter] = useState("");
+  const [supportTiktok, setSupportTiktok] = useState("");
   
   const utils = trpc.useUtils();
 
@@ -58,6 +60,16 @@ export default function AdminSettings() {
       
       const supportTwitterSetting = settings.find((s) => s.key === "support_twitter");
       if (supportTwitterSetting) setSupportTwitter(supportTwitterSetting.value || "");
+      
+      const supportTiktokSetting = settings.find((s) => s.key === "support_tiktok");
+      if (supportTiktokSetting) setSupportTiktok(supportTiktokSetting.value || "");
+      
+      // Set default values if not in database
+      if (!adminEmailSetting) setAdminEmail(ADMIN_EMAIL);
+      if (!whatsapp) setWhatsappNumber(WHATSAPP_NUMBER);
+      if (!supportWhatsappSetting) setSupportWhatsapp(WHATSAPP_NUMBER);
+      if (!supportInstagramSetting) setSupportInstagram(SOCIAL_LINKS.instagram);
+      if (!supportTiktokSetting) setSupportTiktok(SOCIAL_LINKS.tiktok);
     }
   }, [settings]);
 
@@ -73,6 +85,7 @@ export default function AdminSettings() {
       { key: "support_facebook", value: supportFacebook, description: "Facebook page URL" },
       { key: "support_instagram", value: supportInstagram, description: "Instagram profile URL" },
       { key: "support_twitter", value: supportTwitter, description: "Twitter profile URL" },
+      { key: "support_tiktok", value: supportTiktok, description: "TikTok profile URL" },
     ];
 
     let savedCount = 0;
@@ -249,6 +262,23 @@ export default function AdminSettings() {
                     value={supportTwitter}
                     onChange={(e) => setSupportTwitter(e.target.value)}
                     placeholder="https://twitter.com/lionsvogue"
+                    className="max-w-md"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="supportTiktok" className="flex items-center gap-2">
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                    TikTok Profile
+                  </Label>
+                  <Input
+                    id="supportTiktok"
+                    type="url"
+                    value={supportTiktok}
+                    onChange={(e) => setSupportTiktok(e.target.value)}
+                    placeholder="https://www.tiktok.com/@lionsvogue"
                     className="max-w-md"
                   />
                 </div>

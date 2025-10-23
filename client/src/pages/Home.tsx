@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { trpc } from "@/lib/trpc";
-import { ShoppingBag, Calendar, ArrowRight, Mail, Phone, MessageCircle } from "lucide-react";
+import { ShoppingBag, Calendar, ArrowRight, Mail, Phone, MessageCircle, Instagram } from "lucide-react";
+import { SOCIAL_LINKS } from "@/const";
 import { Link } from "wouter";
 
 function ContactInfo() {
@@ -278,6 +279,29 @@ export default function Home() {
               <p className="text-gray-400 text-sm">Premium clothing and exclusive events for the modern trendsetter.</p>
             </div>
             <div>
+              <h4 className="font-semibold text-lg mb-4">Follow Us</h4>
+              <div className="flex gap-4 mb-6">
+                <a
+                  href={SOCIAL_LINKS.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 flex items-center justify-center hover:scale-110 transition-transform"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-5 h-5 text-white" />
+                </a>
+                <a
+                  href={SOCIAL_LINKS.tiktok}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-black border-2 border-white flex items-center justify-center hover:scale-110 transition-transform"
+                  aria-label="TikTok"
+                >
+                  <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                  </svg>
+                </a>
+              </div>
               <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
               <ul className="space-y-2 text-gray-400">
                 <li>
